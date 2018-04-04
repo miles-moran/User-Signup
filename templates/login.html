@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+<!-- extends -->
+{% block content %}
+
+<h1>User Signup</h1>
+<form action="/login" method="post">
+    <table>
+        <tbody>
+            <tr>
+                <td>Username</td>
+                <td><input type="text" name="username" id="username" value={{username}}>
+{% if username_error == True %}
+                <span class="error">Username exceeds character limits or includes spaces</span>
+{% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" value="" name="password" id="password">
+{% if password_error == True %}
+                <span class="error">Password exceeds character limits or includes spaces</span>
+{% endif %}  
+                </td> 
+            </tr>
+            <tr>
+                <td>Confirm Password</td>
+                <td>
+                <input type="password" value="" name="password_confirm" id="password_confirm">
+{% if confirm_error == True %}
+                <span class="error"> Passwords do not match</span>
+{% endif %}
+            </td>
+            </tr>
+
+            <tr>
+                <td>Email (Optional)</td>
+                <td><input type="text" name="email" id="email" value={{email}}>
+{% if email_error == True %}
+                <span class="error">Email exceeds character limits, includes spaces, or does not include a "@" or "."</span>
+{% endif %}
+            </td>
+            </tr>
+            <tr>
+                <td>
+                    <!---->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="submit" name="login" id="login_button">
+</form>
+
+{% endblock %}
